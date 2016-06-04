@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SVProgressHUD
+//import SVProgressHUD
 
 class ViewController: UIViewController {
     
@@ -26,30 +26,44 @@ class ViewController: UIViewController {
 
     @IBAction func plus(){
         number = number + 1
+        setLabelColor(number)
         label.text = String(number)
-        SVProgressHUD.show()
+//        SVProgressHUD.show()
     }
     
     
     @IBAction func minus(){
         number = number - 1
+        setLabelColor(number)
         label.text = String(number)
     }
     
     @IBAction func multi(){
         number = number*2
+        setLabelColor(number)
         label.text = String(number)
     }
     
     @IBAction func waru(){
         number = number/2
+        setLabelColor(number)
         label.text = String(number)
     }
     @IBAction func clear(){
         number = 0
+        setLabelColor(number)
         label.text = String(number)
     }
     
+    func setLabelColor(number:Int){
+        if(number == 0){
+            label.textColor = UIColor.blackColor()
+        }else if(number <= 10){
+            label.textColor = UIColor.blueColor()
+        }else{
+            label.textColor = UIColor.redColor()
+        }
+    }
 
 }
 
